@@ -77,13 +77,13 @@ export default function SlideAuthController() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🎮 AUTH CONTROLLER
       </motion.h2>
 
       {/* Tab switcher */}
-      <div style={{ display: 'flex', gap: '4px', background: '#080f1a', borderRadius: '8px', padding: '4px', border: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-card)', borderRadius: '8px', padding: '4px', border: '1px solid rgba(255,255,255,0.06)' }}>
         {tabs.map((t, i) => (
           <motion.button
             key={t}
@@ -92,7 +92,7 @@ export default function SlideAuthController() {
             style={{
               background: tab === i ? 'rgba(0,255,136,0.15)' : 'transparent',
               border: `1px solid ${tab === i ? 'rgba(0,255,136,0.4)' : 'transparent'}`,
-              color: tab === i ? '#00ff88' : '#475569',
+              color: tab === i ? 'var(--neon-green)' : 'var(--nav-label)',
               padding: '6px 18px',
               borderRadius: '6px',
               fontSize: '0.65rem',
@@ -121,10 +121,10 @@ export default function SlideAuthController() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '8px', padding: '12px 16px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '8px', padding: '12px 16px' }}
           >
-            <div style={{ color: '#00d4ff', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>📝 DTOs</div>
-            <pre style={{ color: '#64748b', fontSize: '0.62rem', lineHeight: 1.7 }}>{`public record RegisterDto(
+            <div style={{ color: 'var(--neon-blue)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>📝 DTOs</div>
+            <pre style={{ color: 'var(--text-muted)', fontSize: '0.62rem', lineHeight: 1.7 }}>{`public record RegisterDto(
   string Email,
   string Password,
   string FullName
@@ -141,17 +141,17 @@ public record LoginDto(
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '8px', padding: '12px 16px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '8px', padding: '12px 16px' }}
           >
-            <div style={{ color: '#fbbf24', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>🗺️ Endpoints</div>
+            <div style={{ color: 'var(--neon-yellow)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>🗺️ Endpoints</div>
             {[
               { method: 'POST', path: '/api/auth/register', color: '#86efac', desc: 'Create user' },
               { method: 'POST', path: '/api/auth/login', color: '#00d4ff', desc: 'Get token' },
             ].map((ep, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '6px' }}>
                 <span style={{ background: ep.color + '20', color: ep.color, padding: '2px 6px', borderRadius: '3px', fontSize: '0.6rem', fontWeight: 700, minWidth: 40 }}>{ep.method}</span>
-                <span style={{ color: '#e2e8f0', fontSize: '0.62rem' }}>{ep.path}</span>
-                <span style={{ color: '#475569', fontSize: '0.6rem', marginLeft: 'auto' }}>{ep.desc}</span>
+                <span style={{ color: 'var(--text-primary)', fontSize: '0.62rem' }}>{ep.path}</span>
+                <span style={{ color: 'var(--nav-label)', fontSize: '0.6rem', marginLeft: 'auto' }}>{ep.desc}</span>
               </div>
             ))}
           </motion.div>
@@ -161,10 +161,10 @@ public record LoginDto(
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(168,85,247,0.2)', borderRadius: '8px', padding: '12px 16px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: '8px', padding: '12px 16px' }}
           >
-            <div style={{ color: '#a855f7', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>👤 ApplicationUser.cs</div>
-            <pre style={{ color: '#64748b', fontSize: '0.62rem', lineHeight: 1.7 }}>{`public class ApplicationUser
+            <div style={{ color: 'var(--neon-purple)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>👤 ApplicationUser.cs</div>
+            <pre style={{ color: 'var(--text-muted)', fontSize: '0.62rem', lineHeight: 1.7 }}>{`public class ApplicationUser
   : IdentityUser
 {
   public string FullName { get; set; }

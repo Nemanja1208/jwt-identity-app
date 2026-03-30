@@ -63,12 +63,12 @@ export default function SlideIntro() {
                   width: 64, height: 64,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   background: ['rgba(255,107,53,0.15)', 'rgba(168,85,247,0.15)', 'rgba(0,212,255,0.15)'][i],
-                  border: `2px solid ${['#ff6b35', '#a855f7', '#00d4ff'][i]}`,
+                  border: `2px solid ${['var(--neon-orange)', 'var(--neon-purple)', 'var(--neon-blue)'][i]}`,
                   borderRadius: '10px',
                   fontSize: '2rem',
                   fontFamily: 'Orbitron, monospace',
                   fontWeight: 900,
-                  color: ['#ff6b35', '#a855f7', '#00d4ff'][i],
+                  color: ['var(--neon-orange)', 'var(--neon-purple)', 'var(--neon-blue)'][i],
                   boxShadow: `0 0 20px ${['rgba(255,107,53,0.4)', 'rgba(168,85,247,0.4)', 'rgba(0,212,255,0.4)'][i]}`,
                 }}
               >{l}</motion.div>
@@ -79,7 +79,7 @@ export default function SlideIntro() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            style={{ fontSize: '0.7rem', color: '#475569', letterSpacing: '0.3em', marginBottom: '8px' }}
+            style={{ fontSize: '0.7rem', color: 'var(--nav-label)', letterSpacing: '0.3em', marginBottom: '8px' }}
           >
             &amp;
           </motion.div>
@@ -92,7 +92,7 @@ export default function SlideIntro() {
               fontFamily: 'Orbitron, monospace',
               fontSize: '2rem',
               fontWeight: 900,
-              color: '#00ff88',
+              color: 'var(--neon-green)',
               textShadow: '0 0 30px rgba(0,255,136,0.6)',
               letterSpacing: '0.05em',
               marginBottom: '8px',
@@ -105,7 +105,7 @@ export default function SlideIntro() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
-            style={{ color: '#64748b', fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '40px' }}
+            style={{ color: 'var(--text-muted)', fontSize: '0.8rem', letterSpacing: '0.08em', marginBottom: '40px' }}
           >
             Authentication &amp; Authorization in .NET Core APIs
           </motion.p>
@@ -129,7 +129,7 @@ export default function SlideIntro() {
                   border: '1px solid rgba(0,255,136,0.2)',
                   borderRadius: '20px',
                   fontSize: '0.65rem',
-                  color: '#00ff88',
+                  color: 'var(--neon-green)',
                   letterSpacing: '0.05em',
                 }}
               >
@@ -142,7 +142,7 @@ export default function SlideIntro() {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
-            style={{ fontSize: '0.65rem', color: '#00ff88', letterSpacing: '0.2em' }}
+            style={{ fontSize: '0.65rem', color: 'var(--neon-green)', letterSpacing: '0.2em' }}
           >
             PRESS → TO BEGIN
           </motion.div>

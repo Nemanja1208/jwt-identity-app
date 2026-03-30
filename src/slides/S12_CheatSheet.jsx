@@ -94,7 +94,7 @@ export default function SlideCheatSheet() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em', flexShrink: 0 }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em', flexShrink: 0 }}
       >
         📋 JWT + IDENTITY CHEAT SHEET
       </motion.h2>
@@ -116,7 +116,7 @@ export default function SlideCheatSheet() {
             transition={{ delay: i * 0.07 }}
             whileHover={{ y: -3, boxShadow: `0 8px 30px ${sec.color}20` }}
             style={{
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: `1px solid ${sec.color}25`,
               borderTop: `3px solid ${sec.color}`,
               borderRadius: '8px',
@@ -139,7 +139,7 @@ export default function SlideCheatSheet() {
                 style={{ display: 'flex', gap: '6px', alignItems: 'flex-start' }}
               >
                 <span style={{ color: sec.color, opacity: 0.4, fontSize: '0.55rem', marginTop: '3px', flexShrink: 0 }}>▸</span>
-                <span style={{ color: '#64748b', fontSize: '0.6rem', lineHeight: 1.5, fontFamily: 'JetBrains Mono' }}>{item}</span>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.6rem', lineHeight: 1.5, fontFamily: 'JetBrains Mono' }}>{item}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -152,12 +152,12 @@ export default function SlideCheatSheet() {
         transition={{ delay: 1.2 }}
         style={{
           display: 'flex', gap: '20px', alignItems: 'center',
-          color: '#1e3a52', fontSize: '0.6rem',
+          color: 'var(--nav-hint)', fontSize: '0.6rem',
           flexShrink: 0,
         }}
       >
         <span>Built with ASP.NET Core 8 + Identity + JWT Bearer</span>
-        <span style={{ color: '#00ff88' }}>◆</span>
+        <span style={{ color: 'var(--neon-green)' }}>◆</span>
         <span>NBI Handelsakademin</span>
       </motion.div>
     </div>

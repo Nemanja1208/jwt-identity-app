@@ -36,7 +36,7 @@ const installLines = packages.map(p =>
   `dotnet add package ${p.name} --version ${p.version}`
 );
 
-function TerminalLine({ text, delay, color = '#00ff88' }) {
+function TerminalLine({ text, delay, color = 'var(--neon-green)' }) {
   const [visible, setVisible] = useState(false);
   const [typed, setTyped] = useState('');
 
@@ -64,7 +64,7 @@ function TerminalLine({ text, delay, color = '#00ff88' }) {
       animate={{ opacity: 1 }}
       style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '4px' }}
     >
-      <span style={{ color: '#00ff88', opacity: 0.5, flexShrink: 0 }}>$</span>
+      <span style={{ color: 'var(--neon-green)', opacity: 0.5, flexShrink: 0 }}>$</span>
       <span style={{ color, fontSize: '0.7rem', wordBreak: 'break-all', lineHeight: 1.6 }}>{typed}</span>
     </motion.div>
   );
@@ -85,7 +85,7 @@ export default function SlideInstall() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         📦 INSTALL PACKAGES
       </motion.h2>
@@ -100,7 +100,7 @@ export default function SlideInstall() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.15 }}
               style={{
-                background: '#080f1a',
+                background: 'var(--bg-card)',
                 border: `1px solid ${pkg.color}30`,
                 borderLeft: `3px solid ${pkg.color}`,
                 borderRadius: '8px',
@@ -110,11 +110,11 @@ export default function SlideInstall() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                 <span style={{ fontSize: '1rem' }}>{pkg.icon}</span>
                 <span style={{ color: pkg.color, fontSize: '0.7rem', fontWeight: 600 }}>{pkg.name}</span>
-                <span style={{ marginLeft: 'auto', color: '#1e3a52', fontSize: '0.6rem', background: '#010409', padding: '1px 6px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <span style={{ marginLeft: 'auto', color: 'var(--nav-hint)', fontSize: '0.6rem', background: 'var(--code-bg)', padding: '1px 6px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.05)' }}>
                   v{pkg.version}
                 </span>
               </div>
-              <p style={{ color: '#64748b', fontSize: '0.65rem' }}>{pkg.desc}</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.65rem' }}>{pkg.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function SlideInstall() {
         <div style={{ flex: 1.1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {/* Terminal window */}
           <div style={{
-            background: '#010409',
+            background: 'var(--code-bg)',
             border: '1px solid rgba(0,255,136,0.2)',
             borderRadius: '10px',
             overflow: 'hidden',
@@ -131,7 +131,7 @@ export default function SlideInstall() {
           }}>
             {/* Title bar */}
             <div style={{
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               padding: '8px 14px',
               display: 'flex', alignItems: 'center', gap: '6px',
               borderBottom: '1px solid rgba(255,255,255,0.05)',
@@ -139,13 +139,13 @@ export default function SlideInstall() {
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#ff5f57' }} />
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#febc2e' }} />
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#28c840' }} />
-              <span style={{ marginLeft: 8, color: '#475569', fontSize: '0.6rem' }}>bash — MyProject</span>
+              <span style={{ marginLeft: 8, color: 'var(--nav-label)', fontSize: '0.6rem' }}>bash — MyProject</span>
             </div>
 
             <div style={{ padding: '16px', minHeight: 200 }}>
-              <TerminalLine key={`${replay}-header`} text="cd MyProject/" delay={0.2} color="#64748b" />
+              <TerminalLine key={`${replay}-header`} text="cd MyProject/" delay={0.2} color="var(--text-muted)" />
               {installLines.map((line, i) => (
-                <TerminalLine key={`${replay}-${i}`} text={line} delay={0.6 + i * 0.8} color="#e2e8f0" />
+                <TerminalLine key={`${replay}-${i}`} text={line} delay={0.6 + i * 0.8} color="var(--text-primary)" />
               ))}
               {showOutput && (
                 <motion.div
@@ -154,8 +154,8 @@ export default function SlideInstall() {
                   animate={{ opacity: 1 }}
                   style={{ marginTop: '8px' }}
                 >
-                  <div style={{ color: '#475569', fontSize: '0.65rem', marginBottom: '4px' }}>Determining projects to restore...</div>
-                  <div style={{ color: '#00ff88', fontSize: '0.65rem' }}>✓ All packages installed successfully!</div>
+                  <div style={{ color: 'var(--nav-label)', fontSize: '0.65rem', marginBottom: '4px' }}>Determining projects to restore...</div>
+                  <div style={{ color: 'var(--neon-green)', fontSize: '0.65rem' }}>✓ All packages installed successfully!</div>
                 </motion.div>
               )}
             </div>
@@ -167,24 +167,24 @@ export default function SlideInstall() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             style={{
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: '1px solid rgba(0,212,255,0.2)',
               borderRadius: '8px',
               padding: '12px 16px',
             }}
           >
-            <div style={{ color: '#00d4ff', fontSize: '0.6rem', marginBottom: '8px', letterSpacing: '0.08em' }}>
+            <div style={{ color: 'var(--neon-blue)', fontSize: '0.6rem', marginBottom: '8px', letterSpacing: '0.08em' }}>
               📦 NuGet Package Manager (Visual Studio)
             </div>
             {packages.slice(0, 2).map((pkg, i) => (
-              <div key={i} style={{ color: '#475569', fontSize: '0.65rem', marginBottom: '2px' }}>
-                <span style={{ color: '#64748b' }}>Install-Package </span>
-                <span style={{ color: '#fbbf24' }}>{pkg.name}</span>
-                <span style={{ color: '#475569' }}> -Version </span>
+              <div key={i} style={{ color: 'var(--nav-label)', fontSize: '0.65rem', marginBottom: '2px' }}>
+                <span style={{ color: 'var(--text-muted)' }}>Install-Package </span>
+                <span style={{ color: 'var(--neon-yellow)' }}>{pkg.name}</span>
+                <span style={{ color: 'var(--nav-label)' }}> -Version </span>
                 <span style={{ color: '#86efac' }}>{pkg.version}</span>
               </div>
             ))}
-            <div style={{ color: '#1e3a52', fontSize: '0.6rem', marginTop: '6px' }}>...and 2 more</div>
+            <div style={{ color: 'var(--nav-hint)', fontSize: '0.6rem', marginTop: '6px' }}>...and 2 more</div>
           </motion.div>
 
           <motion.button
@@ -192,7 +192,7 @@ export default function SlideInstall() {
             whileHover={{ scale: 1.05 }}
             style={{
               background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)',
-              color: '#00ff88', padding: '6px', borderRadius: '6px',
+              color: 'var(--neon-green)', padding: '6px', borderRadius: '6px',
               fontSize: '0.65rem', fontFamily: 'JetBrains Mono', cursor: 'pointer',
             }}
           >

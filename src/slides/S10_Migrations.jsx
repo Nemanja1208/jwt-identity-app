@@ -81,9 +81,9 @@ function TerminalRunner({ steps }) {
             whileTap={{ scale: 0.97 }}
             disabled={running}
             style={{
-              background: activeStep === i ? `${s.color}15` : '#080f1a',
+              background: activeStep === i ? `${s.color}15` : 'var(--bg-card)',
               border: `1px solid ${activeStep === i ? s.color : 'rgba(255,255,255,0.06)'}`,
-              color: activeStep === i ? s.color : '#475569',
+              color: activeStep === i ? s.color : 'var(--nav-label)',
               padding: '5px 12px', borderRadius: '6px',
               fontSize: '0.6rem', fontFamily: 'JetBrains Mono',
               cursor: running ? 'not-allowed' : 'pointer',
@@ -95,22 +95,22 @@ function TerminalRunner({ steps }) {
       </div>
 
       {/* Terminal */}
-      <div style={{ background: '#010409', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '10px', overflow: 'hidden', flex: 1 }}>
-        <div style={{ background: '#080f1a', padding: '8px 14px', display: 'flex', gap: '6px', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+      <div style={{ background: 'var(--code-bg)', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '10px', overflow: 'hidden', flex: 1 }}>
+        <div style={{ background: 'var(--bg-card)', padding: '8px 14px', display: 'flex', gap: '6px', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
           {['#ff5f57','#febc2e','#28c840'].map((c,i) => <div key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
-          <span style={{ marginLeft: 8, color: '#475569', fontSize: '0.6rem' }}>bash — EF Core Migrations</span>
+          <span style={{ marginLeft: 8, color: 'var(--nav-label)', fontSize: '0.6rem' }}>bash — EF Core Migrations</span>
         </div>
         <div style={{ padding: '14px', minHeight: 150 }}>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
-            <span style={{ color: '#00ff88', opacity: 0.5 }}>$</span>
-            <span style={{ color: '#e2e8f0', fontSize: '0.7rem', wordBreak: 'break-all' }}>{steps[activeStep].cmd}</span>
+            <span style={{ color: 'var(--neon-green)', opacity: 0.5 }}>$</span>
+            <span style={{ color: 'var(--text-primary)', fontSize: '0.7rem', wordBreak: 'break-all' }}>{steps[activeStep].cmd}</span>
           </div>
           {outputLines.map((line, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -5 }}
               animate={{ opacity: 1, x: 0 }}
-              style={{ color: i === outputLines.length - 1 && done ? steps[activeStep].color : '#475569', fontSize: '0.65rem', marginBottom: '2px' }}
+              style={{ color: i === outputLines.length - 1 && done ? steps[activeStep].color : 'var(--nav-label)', fontSize: '0.65rem', marginBottom: '2px' }}
             >
               {line}
             </motion.div>
@@ -119,12 +119,12 @@ function TerminalRunner({ steps }) {
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.5, repeat: Infinity }}
-              style={{ color: '#00ff88', fontSize: '0.8rem' }}
+              style={{ color: 'var(--neon-green)', fontSize: '0.8rem' }}
             >_</motion.span>
           )}
         </div>
       </div>
-      <div style={{ color: '#475569', fontSize: '0.6rem' }}>{steps[activeStep].desc}</div>
+      <div style={{ color: 'var(--nav-label)', fontSize: '0.6rem' }}>{steps[activeStep].desc}</div>
     </div>
   );
 }
@@ -136,7 +136,7 @@ export default function SlideMigrations() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🗄️ EF MIGRATIONS & DATABASE SETUP
       </motion.h2>
@@ -150,9 +150,9 @@ export default function SlideMigrations() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
           >
-            <div style={{ color: '#00ff88', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📋 Identity Tables Created</div>
+            <div style={{ color: 'var(--neon-green)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📋 Identity Tables Created</div>
             {identityTables.map((t, i) => (
               <motion.div
                 key={i}
@@ -163,7 +163,7 @@ export default function SlideMigrations() {
               >
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: t.color, flexShrink: 0 }} />
                 <span style={{ color: t.color, fontSize: '0.62rem', fontFamily: 'JetBrains Mono', minWidth: 140 }}>{t.table}</span>
-                <span style={{ color: '#475569', fontSize: '0.58rem' }}>{t.desc}</span>
+                <span style={{ color: 'var(--nav-label)', fontSize: '0.58rem' }}>{t.desc}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -173,9 +173,9 @@ export default function SlideMigrations() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            style={{ background: '#010409', border: '1px solid rgba(168,85,247,0.2)', borderRadius: '8px', padding: '12px', position: 'relative' }}
+            style={{ background: 'var(--code-bg)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: '8px', padding: '12px', position: 'relative' }}
           >
-            <div style={{ position: 'absolute', top: 8, right: 12, color: '#475569', fontSize: '0.58rem' }}>c#</div>
+            <div style={{ position: 'absolute', top: 8, right: 12, color: 'var(--nav-label)', fontSize: '0.58rem' }}>c#</div>
             <pre style={{ fontSize: '0.62rem', lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: seedCode }} />
           </motion.div>
         </div>

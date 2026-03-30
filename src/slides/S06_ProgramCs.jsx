@@ -72,7 +72,7 @@ export default function SlideProgramCs() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🔧 PROGRAM.CS — SERVICE REGISTRATION
       </motion.h2>
@@ -89,7 +89,7 @@ export default function SlideProgramCs() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            style={{ color: '#475569', fontSize: '0.65rem', letterSpacing: '0.05em', marginBottom: '4px' }}
+            style={{ color: 'var(--nav-label)', fontSize: '0.65rem', letterSpacing: '0.05em', marginBottom: '4px' }}
           >
             KEY STEPS:
           </motion.div>
@@ -101,7 +101,7 @@ export default function SlideProgramCs() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 + i * 0.15 }}
               style={{
-                background: '#080f1a',
+                background: 'var(--bg-card)',
                 border: `1px solid ${step.color}30`,
                 borderLeft: `3px solid ${step.color}`,
                 borderRadius: '8px',
@@ -109,7 +109,7 @@ export default function SlideProgramCs() {
               }}
             >
               <div style={{ color: step.color, fontSize: '0.7rem', fontWeight: 600, marginBottom: '4px' }}>{step.label}()</div>
-              <div style={{ color: '#64748b', fontSize: '0.62rem', lineHeight: 1.5 }}>{step.desc}</div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.62rem', lineHeight: 1.5 }}>{step.desc}</div>
             </motion.div>
           ))}
 
@@ -126,11 +126,11 @@ export default function SlideProgramCs() {
               marginTop: '6px',
             }}
           >
-            <div style={{ color: '#fbbf24', fontSize: '0.65rem', fontWeight: 600, marginBottom: '4px' }}>
+            <div style={{ color: 'var(--neon-yellow)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '4px' }}>
               ⚠️ ORDER MATTERS
             </div>
             <div style={{ color: '#78716c', fontSize: '0.62rem', lineHeight: 1.6 }}>
-              Always <span style={{ color: '#fbbf24' }}>UseAuthentication</span> before <span style={{ color: '#f97316' }}>UseAuthorization</span>. Wrong order = all requests fail with 401.
+              Always <span style={{ color: 'var(--neon-yellow)' }}>UseAuthentication</span> before <span style={{ color: '#f97316' }}>UseAuthorization</span>. Wrong order = all requests fail with 401.
             </div>
           </motion.div>
 
@@ -140,14 +140,14 @@ export default function SlideProgramCs() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
             style={{
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: '1px solid rgba(0,255,136,0.15)',
               borderRadius: '8px',
               padding: '10px 14px',
             }}
           >
-            <div style={{ color: '#00ff88', fontSize: '0.6rem', fontWeight: 600, marginBottom: '6px' }}>📋 AppDbContext.cs</div>
-            <pre style={{ color: '#475569', fontSize: '0.6rem', lineHeight: 1.6 }}>
+            <div style={{ color: 'var(--neon-green)', fontSize: '0.6rem', fontWeight: 600, marginBottom: '6px' }}>📋 AppDbContext.cs</div>
+            <pre style={{ color: 'var(--nav-label)', fontSize: '0.6rem', lineHeight: 1.6 }}>
 {`public class AppDbContext
   : IdentityDbContext
     <ApplicationUser>

@@ -27,7 +27,7 @@ export default function SlideFullFlow() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🔄 COMPLETE AUTH FLOW
       </motion.h2>
@@ -41,9 +41,9 @@ export default function SlideFullFlow() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             style={{
-              background: active === i ? `${f.color}20` : '#080f1a',
+              background: active === i ? `${f.color}20` : 'var(--bg-card)',
               border: `2px solid ${active === i ? f.color : 'rgba(255,255,255,0.06)'}`,
-              color: active === i ? f.color : '#475569',
+              color: active === i ? f.color : 'var(--nav-label)',
               padding: '8px 16px', borderRadius: '8px',
               fontSize: '0.65rem', fontFamily: 'JetBrains Mono',
               cursor: 'pointer',
@@ -62,8 +62,8 @@ export default function SlideFullFlow() {
           <div key={i} style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
             <motion.div
               animate={{
-                background: active === i ? `${f.color}20` : active > i ? 'rgba(0,255,136,0.08)' : '#080f1a',
-                borderColor: active === i ? f.color : active > i ? '#00ff88' : 'rgba(255,255,255,0.06)',
+                background: active === i ? `${f.color}20` : active > i ? 'rgba(0,255,136,0.08)' : 'var(--bg-card)',
+                borderColor: active === i ? f.color : active > i ? 'var(--neon-green)' : 'rgba(255,255,255,0.06)',
                 scale: active === i ? 1.05 : 1,
               }}
               transition={{ duration: 0.3 }}
@@ -76,13 +76,13 @@ export default function SlideFullFlow() {
               onClick={() => { setAuto(false); setActive(i); }}
             >
               <div style={{ fontSize: '1.4rem', marginBottom: '4px' }}>{f.icon}</div>
-              <div style={{ fontSize: '0.58rem', fontFamily: 'Orbitron', color: active >= i ? f.color : '#475569', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '0.58rem', fontFamily: 'Orbitron', color: active >= i ? f.color : 'var(--nav-label)', letterSpacing: '0.05em' }}>
                 {f.phase}
               </div>
             </motion.div>
             {i < FLOW.length - 1 && (
               <motion.div
-                animate={{ background: active > i ? '#00ff88' : 'rgba(255,255,255,0.1)' }}
+                animate={{ background: active > i ? 'var(--neon-green)' : 'rgba(255,255,255,0.1)' }}
                 style={{ height: 2, width: 24, flexShrink: 0, transition: 'background 0.3s' }}
               />
             )}
@@ -136,7 +136,7 @@ export default function SlideFullFlow() {
         whileHover={{ scale: 1.05 }}
         style={{
           background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)',
-          color: '#00ff88', padding: '6px 20px', borderRadius: '20px',
+          color: 'var(--neon-green)', padding: '6px 20px', borderRadius: '20px',
           fontSize: '0.65rem', fontFamily: 'JetBrains Mono', cursor: 'pointer',
         }}
       >

@@ -60,7 +60,7 @@ export default function SlideJwtStructure() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.2rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.2rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         JWT TOKEN STRUCTURE
       </motion.h2>
@@ -71,7 +71,7 @@ export default function SlideJwtStructure() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
         style={{
-          background: '#010409',
+          background: 'var(--code-bg)',
           border: '1px solid rgba(0,255,136,0.2)',
           borderRadius: '8px',
           padding: '12px 20px',
@@ -99,7 +99,7 @@ export default function SlideJwtStructure() {
             >
               {part.encoded}
             </motion.span>
-            {i < 2 && <span style={{ color: '#00ff88', opacity: 0.5 }}>.</span>}
+            {i < 2 && <span style={{ color: 'var(--neon-green)', opacity: 0.5 }}>.</span>}
           </span>
         ))}
       </motion.div>
@@ -116,7 +116,7 @@ export default function SlideJwtStructure() {
             whileHover={{ y: -4, scale: 1.02 }}
             style={{
               flex: 1,
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: `1px solid ${active === i ? part.color : 'rgba(255,255,255,0.06)'}`,
               borderRadius: '10px',
               padding: '16px',
@@ -131,9 +131,9 @@ export default function SlideJwtStructure() {
                 {part.label}
               </span>
             </div>
-            <p style={{ color: '#64748b', fontSize: '0.65rem', marginBottom: '10px' }}>{part.desc}</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.65rem', marginBottom: '10px' }}>{part.desc}</p>
             <div style={{
-              background: '#010409',
+              background: 'var(--code-bg)',
               borderRadius: '6px',
               padding: '10px',
               border: `1px solid rgba(255,255,255,0.05)`,
@@ -180,7 +180,7 @@ export default function SlideJwtStructure() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        style={{ color: '#1e3a52', fontSize: '0.6rem', letterSpacing: '0.05em' }}
+        style={{ color: 'var(--nav-hint)', fontSize: '0.6rem', letterSpacing: '0.05em' }}
       >
         Click each section to inspect • Header . Payload . Signature
       </motion.p>

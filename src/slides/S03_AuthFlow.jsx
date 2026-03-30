@@ -50,7 +50,7 @@ export default function SlideAuthFlow() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         JWT AUTHENTICATION FLOW
       </motion.h2>
@@ -93,7 +93,7 @@ export default function SlideAuthFlow() {
               top: '50%',
               transform: 'translateY(-50%)',
               width: 120,
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: `2px solid ${node.color}`,
               borderRadius: '10px',
               padding: '10px',
@@ -118,7 +118,7 @@ export default function SlideAuthFlow() {
               display: 'flex', alignItems: 'center', gap: '12px',
               padding: '8px 14px',
               borderRadius: '6px',
-              background: currentStep === i ? `${step.color}15` : currentStep > i ? 'rgba(0,255,136,0.05)' : '#08101a',
+              background: currentStep === i ? `${step.color}15` : currentStep > i ? 'rgba(0,255,136,0.05)' : 'var(--bg-card)',
               border: `1px solid ${currentStep === i ? step.color : currentStep > i ? 'rgba(0,255,136,0.15)' : 'rgba(255,255,255,0.04)'}`,
               transition: 'all 0.3s',
               cursor: 'pointer',
@@ -136,14 +136,14 @@ export default function SlideAuthFlow() {
             </div>
 
             <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flex: 1 }}>
-              <span style={{ fontSize: '0.7rem', color: currentStep >= i ? step.color : '#475569', fontWeight: currentStep === i ? 600 : 400 }}>
+              <span style={{ fontSize: '0.7rem', color: currentStep >= i ? step.color : 'var(--nav-label)', fontWeight: currentStep === i ? 600 : 400 }}>
                 {step.label}
               </span>
-              <span style={{ fontSize: '0.6rem', color: '#1e3a52' }}>—</span>
-              <span style={{ fontSize: '0.6rem', color: '#64748b' }}>{step.sub}</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--nav-hint)' }}>—</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>{step.sub}</span>
             </div>
 
-            <div style={{ fontSize: '0.55rem', color: '#1e3a52', letterSpacing: '0.05em' }}>
+            <div style={{ fontSize: '0.55rem', color: 'var(--nav-hint)', letterSpacing: '0.05em' }}>
               {step.from.toUpperCase()} → {step.to.toUpperCase()}
             </div>
           </motion.div>
@@ -156,7 +156,7 @@ export default function SlideAuthFlow() {
         whileTap={{ scale: 0.95 }}
         style={{
           background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.3)',
-          color: '#00ff88', padding: '6px 20px', borderRadius: '20px',
+          color: 'var(--neon-green)', padding: '6px 20px', borderRadius: '20px',
           fontSize: '0.65rem', fontFamily: 'JetBrains Mono', cursor: 'pointer',
           letterSpacing: '0.08em',
         }}

@@ -74,7 +74,7 @@ export default function SlideTokenService() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🎫 TOKEN SERVICE — JWT GENERATION
       </motion.h2>
@@ -95,9 +95,9 @@ export default function SlideTokenService() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
           >
-            <div style={{ color: '#00ff88', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📋 Claims in Token</div>
+            <div style={{ color: 'var(--neon-green)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📋 Claims in Token</div>
             {claimsList.map((c, i) => (
               <motion.div
                 key={i}
@@ -108,8 +108,8 @@ export default function SlideTokenService() {
               >
                 <span style={{ color: c.color, fontSize: '0.65rem', fontWeight: 600, minWidth: 60 }}>{c.claim}</span>
                 <div>
-                  <div style={{ color: '#e2e8f0', fontSize: '0.6rem' }}>{c.value}</div>
-                  <div style={{ color: '#475569', fontSize: '0.58rem' }}>{c.desc}</div>
+                  <div style={{ color: 'var(--text-primary)', fontSize: '0.6rem' }}>{c.value}</div>
+                  <div style={{ color: 'var(--nav-label)', fontSize: '0.58rem' }}>{c.desc}</div>
                 </div>
               </motion.div>
             ))}
@@ -122,10 +122,10 @@ export default function SlideTokenService() {
             transition={{ delay: 1.1 }}
             style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)', borderRadius: '8px', padding: '12px 14px' }}
           >
-            <div style={{ color: '#fbbf24', fontSize: '0.65rem', fontWeight: 600, marginBottom: '6px' }}>⏱️ Token Lifecycle</div>
+            <div style={{ color: 'var(--neon-yellow)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '6px' }}>⏱️ Token Lifecycle</div>
             <div style={{ color: '#78716c', fontSize: '0.6rem', lineHeight: 1.7 }}>
-              Tokens expire after <span style={{ color: '#fbbf24' }}>ExpiryHours</span>.<br />
-              Use <span style={{ color: '#fbbf24' }}>Refresh Tokens</span> for silent renewal.<br />
+              Tokens expire after <span style={{ color: 'var(--neon-yellow)' }}>ExpiryHours</span>.<br />
+              Use <span style={{ color: 'var(--neon-yellow)' }}>Refresh Tokens</span> for silent renewal.<br />
               Store token in <span style={{ color: '#86efac' }}>localStorage</span> or <span style={{ color: '#86efac' }}>httpOnly cookie</span>.
             </div>
           </motion.div>

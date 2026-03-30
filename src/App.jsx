@@ -88,8 +88,8 @@ export default function App() {
           <SlideComponent />
         </motion.div>
       </AnimatePresence>
-      <div style={{ position: 'fixed', top: 48, left: 0, width: 1, height: '60%', background: 'linear-gradient(180deg, transparent, rgba(0,255,136,0.1), transparent)', pointerEvents: 'none', zIndex: 50 }} />
-      <div style={{ position: 'fixed', top: 48, right: 0, width: 1, height: '60%', background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.1), transparent)', pointerEvents: 'none', zIndex: 50 }} />
+      <div style={{ position: 'fixed', top: 48, left: 0, width: 1, height: '60%', background: 'linear-gradient(180deg, transparent, var(--side-glow-green), transparent)', pointerEvents: 'none', zIndex: 50 }} />
+      <div style={{ position: 'fixed', top: 48, right: 0, width: 1, height: '60%', background: 'linear-gradient(180deg, transparent, var(--side-glow-blue), transparent)', pointerEvents: 'none', zIndex: 50 }} />
     </div>
   );
 }

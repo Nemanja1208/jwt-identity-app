@@ -71,7 +71,7 @@ export default function SlideProtectedEndpoints() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         🛡️ PROTECTING ENDPOINTS — [AUTHORIZE]
       </motion.h2>
@@ -88,9 +88,9 @@ export default function SlideProtectedEndpoints() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,255,136,0.15)', borderRadius: '8px', padding: '14px' }}
           >
-            <div style={{ color: '#00ff88', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>🔐 Authorize Variations</div>
+            <div style={{ color: 'var(--neon-green)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>🔐 Authorize Variations</div>
             {scenarios.map((s, i) => (
               <motion.div
                 key={i}
@@ -105,7 +105,7 @@ export default function SlideProtectedEndpoints() {
                 }}
               >
                 <div style={{ color: s.color, fontSize: '0.62rem', fontFamily: 'JetBrains Mono' }}>{s.code}</div>
-                <div style={{ color: '#475569', fontSize: '0.58rem' }}>{s.result}</div>
+                <div style={{ color: 'var(--nav-label)', fontSize: '0.58rem' }}>{s.result}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -115,9 +115,9 @@ export default function SlideProtectedEndpoints() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '8px', padding: '14px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '8px', padding: '14px' }}
           >
-            <div style={{ color: '#fbbf24', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📡 HTTP Responses</div>
+            <div style={{ color: 'var(--neon-yellow)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '10px' }}>📡 HTTP Responses</div>
             {[
               { code: '200 OK', desc: 'Valid token + authorized', color: '#86efac' },
               { code: '401 Unauthorized', desc: 'No token / expired token', color: '#ff6b35' },
@@ -127,7 +127,7 @@ export default function SlideProtectedEndpoints() {
                 <span style={{ background: r.color + '20', color: r.color, padding: '2px 6px', borderRadius: '3px', fontSize: '0.6rem', fontWeight: 700, whiteSpace: 'nowrap' }}>
                   {r.code}
                 </span>
-                <span style={{ color: '#64748b', fontSize: '0.6rem' }}>{r.desc}</span>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.6rem' }}>{r.desc}</span>
               </div>
             ))}
           </motion.div>
@@ -137,10 +137,10 @@ export default function SlideProtectedEndpoints() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 }}
-            style={{ background: '#080f1a', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '8px', padding: '12px 14px' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(0,212,255,0.2)', borderRadius: '8px', padding: '12px 14px' }}
           >
-            <div style={{ color: '#00d4ff', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>📜 Custom Policy</div>
-            <pre style={{ color: '#64748b', fontSize: '0.6rem', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{`builder.Services.AddAuthorization(
+            <div style={{ color: 'var(--neon-blue)', fontSize: '0.65rem', fontWeight: 600, marginBottom: '8px' }}>📜 Custom Policy</div>
+            <pre style={{ color: 'var(--text-muted)', fontSize: '0.6rem', lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{`builder.Services.AddAuthorization(
   opts => opts.AddPolicy(
     "MinAge18",
     p => p.RequireClaim(

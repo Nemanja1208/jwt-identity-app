@@ -47,7 +47,7 @@ export default function SlideConfig() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
+        style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.1rem', color: 'var(--neon-green)', textShadow: '0 0 20px rgba(0,255,136,0.5)', letterSpacing: '0.1em' }}
       >
         ⚙️ APPSETTINGS.JSON + JWT CONFIG
       </motion.h2>
@@ -65,18 +65,18 @@ export default function SlideConfig() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
             style={{
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: '1px solid rgba(0,212,255,0.2)',
               borderRadius: '8px',
               padding: '12px 16px',
             }}
           >
-            <div style={{ color: '#00d4ff', fontSize: '0.65rem', marginBottom: '8px', fontWeight: 600 }}>🔒 Dev Secret (User Secrets)</div>
-            <div style={{ color: '#64748b', fontSize: '0.65rem', marginBottom: '6px' }}>Never store secrets in appsettings — use:</div>
+            <div style={{ color: 'var(--neon-blue)', fontSize: '0.65rem', marginBottom: '8px', fontWeight: 600 }}>🔒 Dev Secret (User Secrets)</div>
+            <div style={{ color: 'var(--text-muted)', fontSize: '0.65rem', marginBottom: '6px' }}>Never store secrets in appsettings — use:</div>
             <div style={{
-              background: '#010409', borderRadius: '4px', padding: '8px',
+              background: 'var(--code-bg)', borderRadius: '4px', padding: '8px',
               border: '1px solid rgba(255,255,255,0.05)',
-              fontSize: '0.65rem', color: '#fbbf24',
+              fontSize: '0.65rem', color: 'var(--neon-yellow)',
               wordBreak: 'break-all',
             }}>
               dotnet user-secrets set "JwtSettings:SecretKey" "your-real-secret"
@@ -95,7 +95,7 @@ export default function SlideConfig() {
             transition={{ delay: 0.8 + i * 0.1 }}
             style={{
               flex: 1,
-              background: '#080f1a',
+              background: 'var(--bg-card)',
               border: `1px solid ${w.color}30`,
               borderTop: `3px solid ${w.color}`,
               borderRadius: '8px',
@@ -104,7 +104,7 @@ export default function SlideConfig() {
           >
             <div style={{ fontSize: '1.1rem', marginBottom: '6px' }}>{w.icon}</div>
             <div style={{ color: w.color, fontSize: '0.65rem', fontWeight: 600, marginBottom: '4px' }}>{w.title}</div>
-            <div style={{ color: '#475569', fontSize: '0.6rem' }}>{w.desc}</div>
+            <div style={{ color: 'var(--nav-label)', fontSize: '0.6rem' }}>{w.desc}</div>
           </motion.div>
         ))}
       </div>

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext.jsx';
 
 export function SlideNav({ current, total, onPrev, onNext, slideTitle }) {
   const progress = ((current + 1) / total) * 100;
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -10,16 +12,16 @@ export function SlideNav({ current, total, onPrev, onNext, slideTitle }) {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '12px 24px',
-        background: 'rgba(4, 8, 16, 0.9)',
+        background: 'var(--nav-bg)',
         backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(0,255,136,0.1)'
+        borderBottom: '1px solid var(--nav-border)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ color: '#00ff88', fontSize: '0.65rem', fontFamily: 'Orbitron, monospace', letterSpacing: '0.1em' }}>
+          <span style={{ color: 'var(--neon-green)', fontSize: '0.65rem', fontFamily: 'Orbitron, monospace', letterSpacing: '0.1em' }}>
             JWT & IDENTITY
           </span>
-          <span style={{ color: '#1e3a52', fontSize: '0.6rem' }}>◆</span>
-          <span style={{ color: '#475569', fontSize: '0.65rem' }}>.NET CORE</span>
+          <span style={{ color: 'var(--nav-hint)', fontSize: '0.6rem' }}>◆</span>
+          <span style={{ color: 'var(--nav-label)', fontSize: '0.65rem' }}>.NET CORE</span>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -30,7 +32,7 @@ export function SlideNav({ current, total, onPrev, onNext, slideTitle }) {
                 width: i === current ? 20 : 6,
                 height: 6,
                 borderRadius: 3,
-                background: i === current ? '#00ff88' : i < current ? 'rgba(0,255,136,0.4)' : 'rgba(255,255,255,0.1)',
+                background: i === current ? 'var(--neon-green)' : i < current ? 'var(--border)' : 'var(--dot-inactive)',
               }}
               animate={{ width: i === current ? 20 : 6 }}
               transition={{ duration: 0.3 }}
@@ -38,15 +40,39 @@ export function SlideNav({ current, total, onPrev, onNext, slideTitle }) {
           ))}
         </div>
 
-        <span style={{ color: '#475569', fontSize: '0.65rem' }}>
-          {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <motion.button
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            style={{
+              background: 'transparent',
+              border: '1px solid var(--border)',
+              color: 'var(--text-muted)',
+              width: 28,
+              height: 28,
+              borderRadius: '6px',
+              fontSize: '0.8rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: 'inherit',
+            }}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+          >
+            {theme === 'dark' ? '☀' : '☾'}
+          </motion.button>
+          <span style={{ color: 'var(--nav-label)', fontSize: '0.65rem' }}>
+            {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+          </span>
+        </div>
       </div>
 
       {/* Progress bar */}
-      <div style={{ position: 'fixed', top: 45, left: 0, right: 0, height: '2px', background: 'rgba(255,255,255,0.05)', zIndex: 100 }}>
+      <div style={{ position: 'fixed', top: 45, left: 0, right: 0, height: '2px', background: 'var(--dot-inactive)', zIndex: 100 }}>
         <motion.div
-          style={{ height: '100%', background: 'linear-gradient(90deg, #00ff88, #00d4ff)', transformOrigin: 'left' }}
+          style={{ height: '100%', background: 'linear-gradient(90deg, var(--neon-green), var(--neon-blue))', transformOrigin: 'left' }}
           animate={{ scaleX: progress / 100 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
         />
@@ -57,17 +83,17 @@ export function SlideNav({ current, total, onPrev, onNext, slideTitle }) {
         position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '12px 24px',
-        background: 'rgba(4, 8, 16, 0.9)',
+        background: 'var(--nav-bg)',
         backdropFilter: 'blur(10px)',
-        borderTop: '1px solid rgba(0,255,136,0.1)'
+        borderTop: '1px solid var(--nav-border)'
       }}>
-        <span style={{ color: '#1e3a52', fontSize: '0.65rem' }}>← → arrow keys to navigate</span>
+        <span style={{ color: 'var(--nav-hint)', fontSize: '0.65rem' }}>← → arrow keys to navigate</span>
 
         <motion.span
           key={slideTitle}
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ color: '#64748b', fontSize: '0.65rem', letterSpacing: '0.05em' }}
+          style={{ color: 'var(--text-muted)', fontSize: '0.65rem', letterSpacing: '0.05em' }}
         >
           {slideTitle}
         </motion.span>
@@ -89,16 +115,16 @@ function NavBtn({ onClick, disabled, label, primary }) {
       whileHover={!disabled ? { scale: 1.05 } : {}}
       whileTap={!disabled ? { scale: 0.95 } : {}}
       style={{
-        background: primary && !disabled ? 'rgba(0,255,136,0.15)' : 'transparent',
-        border: `1px solid ${primary && !disabled ? '#00ff88' : 'rgba(255,255,255,0.1)'}`,
-        color: disabled ? '#1e3a52' : primary ? '#00ff88' : '#64748b',
+        background: primary && !disabled ? 'color-mix(in srgb, var(--neon-green) 15%, transparent)' : 'transparent',
+        border: `1px solid ${primary && !disabled ? 'var(--neon-green)' : 'var(--btn-inactive-border)'}`,
+        color: disabled ? 'var(--nav-hint)' : primary ? 'var(--neon-green)' : 'var(--text-muted)',
         padding: '4px 14px',
         borderRadius: '4px',
         fontSize: '0.6rem',
         fontFamily: 'JetBrains Mono, monospace',
         cursor: disabled ? 'not-allowed' : 'pointer',
         letterSpacing: '0.08em',
-        boxShadow: primary && !disabled ? '0 0 10px rgba(0,255,136,0.2)' : 'none',
+        boxShadow: primary && !disabled ? 'var(--glow-green)' : 'none',
       }}
     >
       {label}
